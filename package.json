@@ -1,0 +1,39 @@
+{
+  "name": "serverless-offline-lambda-function-urls",
+  "version": "0.1.0",
+  "license": "ISC",
+  "description": "An extension off serverless-offline that adds support to lambda function urls",
+  "type": "module",
+  "main": "./index.js",
+  "files": [
+    "index.js"
+  ],
+  "bugs": {
+    "url": "https://github.com/MarioSimou/serverless-offline-lambda-function-urls/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/MarioSimou/serverless-offline-lambda-function-urls.git"
+  },
+  "scripts": {
+    "prettier": "prettier '.'",
+    "prettier:check": "pnpm prettier -c",
+    "prettier:format": "pnpm prettier -l -w ",
+    "clean": "rm -rf node_modules 2>dev/null"
+  },
+  "peerDependencies": {
+    "serverless-offline": ">= 12.x"
+  },
+  "keywords": [
+    "serverless-offline",
+    "Lambda Function Urls"
+  ],
+  "author": "Marios Simou",
+  "contributors": [
+    {
+      "name": "Marios Simou",
+      "url": "https://www.mariossimou.dev",
+      "author": true
+    }
+  ]
+}
