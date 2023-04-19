@@ -1,5 +1,6 @@
 import {resolve, join} from 'node:path'
 import {cwd} from 'node:process'
+import {existsSync} from 'node:fs'
 
 export default class ServerlessOfflineLambdaFunctionUrls {
   constructor(serverless) {
@@ -45,16 +46,26 @@ export default class ServerlessOfflineLambdaFunctionUrls {
   }
   mergeServerlessOfflineOptions(options) {
     const stage = this.serverless.variables.options?.stage ?? this.configuration.provider?.stage
-    const serverlessOfflineOptions = this.configuration.custom['serverless-offline']
+    const serverlessOfflineOptions = this.configuration?.custom?.['serverless-offline'] ?? {}
     return {
       ...serverlessOfflineOptions,
       stage,
+      host: serverlessOfflineOptions['host'] ?? '127.0.0.1',
       httpPort: serverlessOfflineOptions['urlLambdaFunctionsHttpPort'] ?? 3003,
       ...options,
     }
   }
   getTranspiledHandlerFilepath(handler) {
-    return join('.esbuild', '.build', handler)
+    const webpackDir = existsSync(this.getFullPath('.webpack'))
+    if (webpackDir) {
+      return join('.webpack', 'service', handler)
+    }
+    const esbuildDir = existsSync(this.getFullPath('.esbuild'))
+    if (esbuildDir) {
+      return join('.esbuild', '.build', handler)
+    }
+
+    return handler
   }
   getFullPath(...args) {
     return resolve(cwd(), ...args)

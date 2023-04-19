@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["../../../../src/functions/index.ts"],
+  "sourcesContent": ["import type {APIGatewayEvent} from 'aws-lambda'\n\nconst wait = (sec: number) => new Promise(resolve => setTimeout(resolve, sec * 1000))\n\nexport const ping = async (event: APIGatewayEvent) => {\n  await wait(45)\n\n  return {\n    statusCode: 200,\n    body: JSON.stringify(\n      {\n        message: 'Go Serverless v1.0! Your function executed successfully!',\n        input: event,\n      },\n      null,\n      2\n    ),\n  }\n}\n"],
+  "mappings": ";;;;;;;;;;;;;;;;;;;AAAA;AAAA;AAAA;AAAA;AAAA;AAEA,IAAM,OAAO,CAAC,QAAgB,IAAI,QAAQ,aAAW,WAAW,SAAS,MAAM,GAAI,CAAC;AAE7E,IAAM,OAAO,OAAO,UAA2B;AACpD,QAAM,KAAK,EAAE;AAEb,SAAO;AAAA,IACL,YAAY;AAAA,IACZ,MAAM,KAAK;AAAA,MACT;AAAA,QACE,SAAS;AAAA,QACT,OAAO;AAAA,MACT;AAAA,MACA;AAAA,MACA;AAAA,IACF;AAAA,EACF;AACF;",
+  "names": []
+}

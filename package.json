@@ -1,6 +1,6 @@
 {
   "name": "serverless-offline-lambda-function-urls",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "license": "ISC",
   "description": "An extension off serverless-offline that adds support to lambda function urls",
   "type": "module",
@@ -35,5 +35,8 @@
       "url": "https://www.mariossimou.dev",
       "author": true
     }
-  ]
+  ],
+  "devDependencies": {
+    "serverless-offline": "^12.0.4"
+  }
 }

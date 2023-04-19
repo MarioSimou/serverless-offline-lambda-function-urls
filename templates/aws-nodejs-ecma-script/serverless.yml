@@ -1,0 +1,17 @@
+service: aws-nodejs-ecma-script
+frameworkVersion: '3'
+
+plugins:
+  - serverless-webpack
+  - serverless-offline
+  - ../../index.js
+
+provider:
+  name: aws
+  runtime: nodejs18.x
+
+functions:
+  ping:
+    handler: ./index.ping
+    url: true
+    timeout: 120

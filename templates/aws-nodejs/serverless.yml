@@ -1,0 +1,16 @@
+service: ping
+frameworkVersion: '3'
+
+plugins:
+  - serverless-offline
+  - ../../index.js
+
+provider:
+  name: aws
+  runtime: nodejs18.x
+
+functions:
+  ping:
+    handler: index.ping
+    url: true
+    timeout: 120
