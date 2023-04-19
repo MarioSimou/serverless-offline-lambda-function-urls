@@ -19,6 +19,11 @@
     "prettier": "prettier '.'",
     "prettier:check": "pnpm prettier -c",
     "prettier:format": "pnpm prettier -l -w ",
+    "lint:check": "eslint '**/*.{ts,js}'",
+    "lint:format": "pnpm lint:check --fix",
+    "start:template:plain": "pnpm --recursive --filter aws-nodejs start",
+    "start:template:ecmascript": "pnpm --recursive --filter aws-nodejs-ecma-script start",
+    "start:template:typescript": "pnpm --recursive --filter aws-nodejs-typescript start",
     "clean": "rm -rf node_modules 2>dev/null"
   },
   "peerDependencies": {
@@ -37,6 +42,9 @@
     }
   ],
   "devDependencies": {
-    "serverless-offline": "^12.0.4"
+    "@typescript-eslint/eslint-plugin": "^5.57.1",
+    "@typescript-eslint/parser": "^5.57.1",
+    "eslint": "8.37.0",
+    "prettier": "^2.8.7"
   }
 }

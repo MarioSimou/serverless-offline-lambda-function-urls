@@ -16,6 +16,9 @@
     "serverless-webpack": "^5.3.1",
     "webpack": "^4.35.2"
   },
+  "engines": {
+    "node": ">= 18"
+  },
   "author": "The serverless webpack authors (https://github.com/elastic-coders/serverless-webpack)",
   "license": "MIT"
 }
