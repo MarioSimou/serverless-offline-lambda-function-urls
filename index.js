@@ -71,8 +71,12 @@ export default class ServerlessOfflineLambdaFunctionUrls {
     return resolve(cwd(), ...args)
   }
   async init() {
-    const {default: Lambda} = await import(this.getFullPath('node_modules', 'serverless-offline/src/lambda/Lambda.js'))
-    const {default: Http} = await import(this.getFullPath('node_modules', 'serverless-offline/src/events/http/Http.js'))
+    const {default: Lambda} = await import(
+      this.getFullPath('node_modules', 'serverless-offline', 'src', 'lambda', 'Lambda.js')
+    )
+    const {default: Http} = await import(
+      this.getFullPath('node_modules', 'serverless-offline', 'src', 'events', 'http', 'Http.js')
+    )
     const functions = this.filterNonUrlEnabledFunctions(this.configuration)
 
     const lambda = new Lambda(this.serverless, this.mergeServerlessOfflineOptions({noTimeout: true}))
