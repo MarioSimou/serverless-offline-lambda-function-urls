@@ -1,0 +1,32 @@
+{
+  // Use IntelliSense to learn about possible attributes.
+  // Hover to view descriptions of existing attributes.
+  // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Launch AWS Nodejs",
+      "type": "node",
+      "request": "launch",
+      "cwd": "${workspaceFolder}/templates/aws-nodejs",
+      "runtimeExecutable": "pnpm",
+      "runtimeArgs": ["run-script", "start"]
+    },
+    {
+      "name": "Launch AWS Nodejs ECMAScript",
+      "type": "node",
+      "request": "launch",
+      "cwd": "${workspaceFolder}/templates/aws-nodejs-ecma-script",
+      "runtimeExecutable": "pnpm",
+      "runtimeArgs": ["run-script", "start"]
+    },
+    {
+      "name": "Launch AWS Nodejs Typescript",
+      "type": "node",
+      "request": "launch",
+      "cwd": "${workspaceFolder}/templates/aws-nodejs-typescript",
+      "runtimeExecutable": "pnpm",
+      "runtimeArgs": ["run-script", "start"]
+    }
+  ]
+}
