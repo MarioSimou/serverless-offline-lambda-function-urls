@@ -19,9 +19,14 @@ plugins:
 ```yaml
 serverless-offline:
   urlLambdaFunctionsHttpPort: 3003
+
+  # Optional - choose which HTTP verb(s) to enable. If omitted, GET and POST will be enabled
+  urlLambdaFunctionsHttpVerbs:
+    - GET
+    - DELETE
 ```
 
-3. Configure a lambda url function. When you add the `url` option, the handler will expose it as a `GET/POST` HTTP endpoint(`/dev/ping`). The HTTP endpoint doesn't go through the API Gateway, which means that you can set your own `timeout` and it will respect it. Traditionally, the API Gateway would timeout after 30 seconds.
+3. Configure a lambda url function. When you add the `url` option, the handler will expose it as an HTTP endpoint(`/dev/ping`) with the verbs specified in `urlLambdaFunctionsHttpVerbs` or `GET` and `POST` if that setting is not specified. The HTTP endpoint doesn't go through the API Gateway, which means that you can set your own `timeout` and it will respect it. Traditionally, the API Gateway would timeout after 30 seconds.
 
 ```yaml
 ping:
