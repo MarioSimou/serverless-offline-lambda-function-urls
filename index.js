@@ -36,23 +36,22 @@ export default class ServerlessOfflineLambdaFunctionUrls {
   }
   getEvents(functions) {
     const stage = this.getStage()
-    const verbs = this.configuration?.custom?.['serverless-offline']?.urlLambdaFunctionsHttpVerbs ?? [
-      'GET',
-      'POST'
-    ]
+    const verbs = this.configuration?.custom?.['serverless-offline']?.urlLambdaFunctionsHttpVerbs ?? ['GET', 'POST']
     return Object.entries(functions).reduce((events, [functionKey, {handler}]) => {
       const path = `/${stage}/${encodeURIComponent(functionKey)}`
-      return events.concat(verbs.map(v => ({
-        functionKey,
-        handler,
-        http: {
-          routeKey: `${verb} ${path}`,
-          payload: '2.0',
-          isHttpApi: true,
-          path,
-          method: verb
-        }
-      })))
+      return events.concat(
+        verbs.map(verb => ({
+          functionKey,
+          handler,
+          http: {
+            routeKey: `${verb} ${path}`,
+            payload: '2.0',
+            isHttpApi: true,
+            path,
+            method: verb,
+          },
+        }))
+      )
     }, [])
   }
   getStage() {

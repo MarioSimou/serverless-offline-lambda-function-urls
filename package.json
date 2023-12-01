@@ -1,6 +1,6 @@
 {
   "name": "serverless-offline-lambda-function-urls",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "license": "ISC",
   "description": "An extension off serverless-offline that adds support to lambda function urls",
   "type": "module",
@@ -27,6 +27,7 @@
     "clean": "rm -rf node_modules 2>dev/null"
   },
   "peerDependencies": {
+    "serverless": "3.x",
     "serverless-offline": ">= 12.x"
   },
   "keywords": [
