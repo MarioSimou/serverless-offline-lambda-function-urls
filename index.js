@@ -81,7 +81,7 @@ export default class ServerlessOfflineLambdaFunctionUrls {
     return handler
   }
   getFullPath(...args) {
-    return resolve(cwd(), ...args)
+    return resolve(cwd(), ...args).replace(/^[A-Z]:/, "").replace(/\\/g, "/")
   }
   async init() {
     const {default: Lambda} = await import(
